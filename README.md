@@ -15,8 +15,15 @@ imagen2:"
 contenido2:"
 imagen3:"
 contenido3:"
+Tamnbien se introduce la siguiente estructura para permitirnos agregar estilos al parrafo de la introsucción y lograr que la tarjeta sea equivalente a las demas en ralación al tamaño.
+
+Contenido4:""
+Contenido5:""
+Contenido6:""
 
 HTML
+
+En el campo del head se intorduce una etiquta title para el nombre de la revista en la parte de la pestaña igualmente se establecen una etiqueta link rel para vincular la hoja de estilos css y un link para enlazar el favicon.ico del logo de la revista.
 
 El código HTML cuenta inicialmente con una etiqueta img que nos permite agregar el logo de la revista, seguidamente de un h1 que contine el título de la revista, el cual es Adicciones, Equilibrio Entre Vida y Muerte. Además de esto también se incorpora un div que incorpora un input, un buttom y un ul para la parte del buscador interno de la página. 
 
@@ -43,6 +50,9 @@ img id="modal-imagen2" src="" alt="" class="modal-imagen">
 p id="modal-contenido2">/p>
 img id="modal-imagen3" src="" alt="" class="modal-imagen">
 p id="modal-contenido3">/p
+p id="modal-contenido4">/p
+p id="modal-contenido5">/p
+p id="modal-contenido6">/p
 /div>
 /div>
 
@@ -52,6 +62,8 @@ div class="btn-container">
 a href="https://sites.google.com/view/adicct/ilustraciones" class="btn-primario">Imagenes/a>
 a href="https://youtu.be/8d_0XQHOh6w" class="btn-secundario">Video/a>
 /div>
+
+Se añade un div que contiene  una etiqueta h4 con el contenido integrantes y una etiqueta ul con una serie de li que alberga los nombres de los integrantes del proyecto.
 
 finalmente agregamos un campo para poder enlazar el código HTML a un documento js para poder darle funcionalidad por medio de una etiqueta script src="app.js">/script>.
 
@@ -81,12 +93,22 @@ El selector. articulo-card hover define los estilos cuando el ratón se desplaza
 
 Los selectores. articulo-card h3, articulo-card img y .articulo-card p aplican estilos a los elementos h3 , img y p ajustando márgenes y tamaños.
 
-Los selectores relacionados con el modal (. modal,. modal-contento, .close, .modal-imagen, #modal-contenido) establecen estilos para el funcionamiento del modal emergente, como su posición, apariencia, márgenes y tamaño.
+Los selectores btn-container, btn-primario, bten-secundario esteblecen los estilos generales de los botones que enlazan al video, imagenes y al portafolio, deifiniendo los margenes de  su posicionamiento, bordes, su color y el ancho y alto de sus propiedades. Se definen iguamente un efecto hover para cada uno de estos. 
+
+El selector de la clase integrantes define los estilos de la lista que contiene a los integrantes del equipo, en cuanto al color de la tipografia y el color de su fondo accediendo para esto a la etiqueta del div con la clase determinada.  
+
+Los selectores relacionados con el modal (. modal,. modal-content, .close, .modal-imagen, #modal-contenido) establecen estilos para el funcionamiento del modal emergente, como su posición, apariencia, márgenes y tamaño.
+
+Se accede al selector modal para cambiar los estilos del scroll bar por medio; de un webkit-scrollbar, para cambiar el ancho y un webkit-scrollbar-thumb, para cambiar el background de la barra y agregarle un border radius.
+
+Se establecen especificamente el acceso del contenido4, contenido5, contenido6, para cambiar el color del texto que se aborda en la introducción.
+
 El media query @media screen and (max-width: 600px) establece estilos específicos para dispositivos con un ancho de pantalla máximo de 600px. Ajusta los márgenes y el tamaño del contenido del modal y de la imagen para adaptarse mejor a pantallas más pequeñas.
 
 El modal-content define tambien una animación con una transformación de un traslateY con un -150vph y una duración de 1 segundo aproximado.
 
 Modal-cerrado define las animaciones que se aplican al cerrar el modal, respectivamente.
+
 JS
 
 La solicitud fetch se realiza a "data. json" para obtener los datos necesarios.
@@ -96,7 +118,7 @@ Posteriormente accedemos a los elementos específicos del DOM utilizando documen
 
 Utilizando textContent se asigna al título de la revista obtenido de los datos el contenido del elemento "revista-título" 
 
-Se itera sobre el arreglo de artículos obtenidos de los datos utilizando. forEach (). Para cada artículo, se crea un nuevo elemento div utilizando document. createElement (), se le añade la clase "articulo-card" utilizando classList.add(), y se establece su contenido HTML utilizando innerHTML con los datos del artículo especificando cada uno de los contenidos del json como contenido, contenido2, contenido3, imagen, imagen2, imagen3.
+Se itera sobre el arreglo de artículos obtenidos de los datos utilizando. forEach (). Para cada artículo, se crea un nuevo elemento div utilizando document. createElement (), se le añade la clase "articulo-card" utilizando classList.add(), y se establece su contenido HTML utilizando innerHTML con los datos del artículo especificando cada uno de los contenidos del json como contenido, contenido2, contenido3, contenido4, contenido5, contenido6, imagen, imagen2, imagen3.
 
 Se añade un listener de evento 'click' a cada artículo para mostrar un modal utilizando la función mostrarModal ().
 
